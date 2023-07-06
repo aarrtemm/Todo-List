@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <h1>
+        <strong>TODO list</strong>
+        <a href="" class="btn btn-primary link-to-page">
+            Add task
+        </a>
+    </h1>
+    <br>
+
+    {% for task in object_list %}
+        <br>
+        <h4>
+            <div style="display: inline-block;">
+                {{ task.content }}
+            </div>
+            {% if task.performance %}
+                <a href="" class="btn btn-success link-to-page">
+                    Complete
+                </a>
+            {% else %}
+                <a href="" class="btn btn-secondary link-to-page">
+                    Undo
+                </a>
+            {% endif %}
+
+            {% if task.performance == False %}
+                <span class="text-success"
+                      style="display: inline-block;">
+                    Done
+                </span>
+            {% else %}
+                <span class="text-danger"
+                      style="display: inline-block;">
+                    Not done
+                </span>
+            {% endif %}
+        </h4>
+        <div style="display: inline-block"><strong>Created:
+            {{ task.created }}
+        </strong>
+        </div>
+        {% if task.deadline %}
+            <span style="display: inline-block; color: darkred">
+                    Deadline {{ task.deadline }}
+                </span>
+        {% endif %}
+        <h4 class="text-muted">Tags:
+            {% for tag in task.tags.all %}
+                {{ tag.title }}
+            {% endfor %}
+            <a href="#">Update</a>
+            <a href="#">Delete</a>
+        </h4>
+        <hr>
+    {% endfor %}
+
+{% endblock %}
