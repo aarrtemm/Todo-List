@@ -52,7 +52,7 @@
                 {{ tag.title }}
             {% endfor %}
             <a href="{% url "tasks:task_update" task.id %}">Update</a>
-            <a href="#">Delete</a>
+            <a href="{% url "tasks:task_delete" task.id %}">Delete</a>
         </h4>
         <hr>
     {% endfor %}

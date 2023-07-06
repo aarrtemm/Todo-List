@@ -1,3 +1,4 @@
+from django.contrib.messages import success
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
@@ -41,4 +42,9 @@ class TaskCreateView(generic.CreateView):
 class TaskUpdateView(generic.UpdateView):
     model = Task
     form_class = TaskForm
+    success_url = reverse_lazy("tasks:task_list")
+
+
+class TaskDeleteView(generic.DeleteView):
+    model = Task
     success_url = reverse_lazy("tasks:task_list")
