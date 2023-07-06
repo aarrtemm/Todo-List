@@ -30,3 +30,5 @@ python manage.py runserver
 ```
 5.Access the website locally at http://localhost:8000.
 
+### Db structure 
+![image](https://github.com/aarrtemm/Todo-List/assets/115632117/b8ed40b8-3ffe-41ef-bc9e-94fb5ea3c0ad)
