@@ -7,7 +7,7 @@
 {% block content %}
     <h1>
         Tags
-        <a href="#" class="btn btn-primary link-to-page">Add</a>
+        <a href="{% url "tasks:tag_create" %}" class="btn btn-primary link-to-page">Add</a>
     </h1>
     {% if tag_list %}
         <table class="table">
