@@ -4,19 +4,18 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('tasks', '0006_alter_task_deadline'),
+        ("tasks", "0006_alter_task_deadline"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='task',
-            options={'ordering': ('-performance', 'created')},
+            name="task",
+            options={"ordering": ("-performance", "created")},
         ),
         migrations.RenameField(
-            model_name='task',
-            old_name='marks',
-            new_name='performance',
+            model_name="task",
+            old_name="marks",
+            new_name="performance",
         ),
     ]

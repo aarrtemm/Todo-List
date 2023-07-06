@@ -4,14 +4,13 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('tasks', '0004_rename_datetime_task_created'),
+        ("tasks", "0004_rename_datetime_task_created"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='task',
-            options={'ordering': ('-marks', 'created')},
+            name="task",
+            options={"ordering": ("-marks", "created")},
         ),
     ]

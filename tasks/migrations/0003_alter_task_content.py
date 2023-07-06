@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('tasks', '0002_rename_tags_tag_rename_tasks_task'),
+        ("tasks", "0002_rename_tags_tag_rename_tasks_task"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='task',
-            name='content',
+            model_name="task",
+            name="content",
             field=models.CharField(max_length=255),
         ),
     ]
