@@ -51,7 +51,7 @@
             {% for tag in task.tags.all %}
                 {{ tag.title }}
             {% endfor %}
-            <a href="#">Update</a>
+            <a href="{% url "tasks:task_update" task.id %}">Update</a>
             <a href="#">Delete</a>
         </h4>
         <hr>
