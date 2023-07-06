@@ -1,7 +1,8 @@
 from django.contrib.messages import success
-from django.shortcuts import render
+from django.http import HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
-from django.views import generic
+from django.views import generic, View
 from tasks.forms import TagForm, TaskForm
 from tasks.models import Task, Tag
 
@@ -48,3 +49,25 @@ class TaskUpdateView(generic.UpdateView):
 class TaskDeleteView(generic.DeleteView):
     model = Task
     success_url = reverse_lazy("tasks:task_list")
+
+
+class CompleteTaskView(View):
+
+    def post(self, request, *args, **kwargs):
+        task_id = self.kwargs["pk"]
+        task = get_object_or_404(Task, id=task_id)
+        task.performance = 1
+        task.save()
+
+        return HttpResponseRedirect(reverse_lazy("tasks:task_list"))
+
+
+class CancelTaskView(View):
+
+    def post(self, request, *args, **kwargs):
+        task_id = self.kwargs["pk"]
+        task = get_object_or_404(Task, id=task_id)
+        task.performance = 0
+        task.save()
+
+        return HttpResponseRedirect(reverse_lazy("tasks:task_list"))

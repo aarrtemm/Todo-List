@@ -9,6 +9,8 @@ from tasks.views import (
     TaskCreateView,
     TaskUpdateView,
     TaskDeleteView,
+    CompleteTaskView,
+    CancelTaskView
 )
 
 app_name = "tasks"
@@ -22,4 +24,6 @@ urlpatterns = [
     path("task/create/", TaskCreateView.as_view(), name="task_create"),
     path("task/<int:pk>/update/", TaskUpdateView.as_view(), name="task_update"),
     path("task/<int:pk>/delete/", TaskDeleteView.as_view(), name="task_delete"),
+    path("task/complete/<int:pk>/", CompleteTaskView.as_view(), name="complete_task"),
+    path("task/cancel/<int:pk>/", CancelTaskView.as_view(), name="cancel_task"),
 ]

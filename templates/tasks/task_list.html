@@ -15,28 +15,35 @@
         <h4>
             <div style="display: inline-block;">
                 {{ task.content }}
-            </div>
-            {% if task.performance %}
-                <a href="" class="btn btn-success link-to-page">
-                    Complete
-                </a>
-            {% else %}
-                <a href="" class="btn btn-secondary link-to-page">
-                    Undo
-                </a>
-            {% endif %}
-
-            {% if task.performance == False %}
-                <span class="text-success"
-                      style="display: inline-block;">
+                {% if task.performance %}
+                    <span class="text-success"
+                          style="display: inline-block;">
                     Done
                 </span>
-            {% else %}
-                <span class="text-danger"
-                      style="display: inline-block;">
+                {% else %}
+                    <span class="text-danger"
+                          style="display: inline-block;">
                     Not done
                 </span>
+                {% endif %}
+            </div>
+            {% if task.performance %}
+                <form action="{% url "tasks:cancel_task" task.id %}" method="post">
+                    {% csrf_token %}
+                    <button href="{% url "tasks:cancel_task" task.id %}"
+                            class="btn btn-secondary link-to-page">
+                        Undo
+                    </button>
+                </form>
+            {% else %}
+                <form action="{% url "tasks:complete_task" task.id %}" method="post">
+                    {% csrf_token %}
+                    <button href="{% url "tasks:complete_task" task.id %}" class="btn btn-success link-to-page">
+                        Complete
+                    </button>
+                </form>
             {% endif %}
+            <br>
         </h4>
         <div style="display: inline-block"><strong>Created:
             {{ task.created }}
