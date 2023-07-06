@@ -20,7 +20,7 @@
                 <tr>
 
                     <td><h6>{{ tag.title }}</h6></td>
-                    <td><a href="#" class="btn btn-secondary">Update</a></td>
+                    <td><a href="{% url "tasks:tag_update" tag.id %}" class="btn btn-secondary">Update</a></td>
                     <td><a href="#" class="btn btn-secondary">Delete</a></td>
 
                 </tr>
