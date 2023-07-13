@@ -19,4 +19,4 @@ class Task(models.Model):
         ordering = ("-performance", "-created")
 
     def __str__(self):
-        return f"{self.content}"
+        return self.content
