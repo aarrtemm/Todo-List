@@ -5,7 +5,7 @@ from tasks.models import Task, Tag
 
 @admin.register(Task)
 class TasksAdmin(admin.ModelAdmin):
-    pass
+    list_display = ("content", "performance")
 
 
 @admin.register(Tag)
